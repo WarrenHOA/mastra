@@ -15,6 +15,14 @@ export interface FactoryProject {
   autoRunEnabled: boolean;
   /** Whether the Factory answers a run's plan itself instead of waiting for a person. */
   autoApprovePlans: boolean;
+  /** Whether autonomous child issue creation is enabled for this project. */
+  autoCreateFollowUpIssues: boolean;
+  /** Whether newly created follow-up issues may be executed automatically. */
+  autoExecuteFollowUpIssues: boolean;
+  /** Whether a human must approve creation of follow-up issues. */
+  requireHumanApprovalForIssueCreation: boolean;
+  /** Whether a human must approve merges initiated by Factory automation. */
+  requireHumanApprovalBeforeMerge: boolean;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -32,6 +40,10 @@ export interface UpdateFactoryProjectInput {
   slackWorkItemsEnabled?: boolean;
   autoRunEnabled?: boolean;
   autoApprovePlans?: boolean;
+  autoCreateFollowUpIssues?: boolean;
+  autoExecuteFollowUpIssues?: boolean;
+  requireHumanApprovalForIssueCreation?: boolean;
+  requireHumanApprovalBeforeMerge?: boolean;
 }
 
 export const FACTORY_PROJECTS_SCHEMA: CollectionSchema = {
@@ -46,6 +58,10 @@ export const FACTORY_PROJECTS_SCHEMA: CollectionSchema = {
     slack_work_items_enabled: { type: 'boolean', default: false },
     auto_run_enabled: { type: 'boolean', default: false },
     auto_approve_plans: { type: 'boolean', default: false },
+    auto_create_follow_up_issues: { type: 'boolean', default: false },
+    auto_execute_follow_up_issues: { type: 'boolean', default: false },
+    require_human_approval_for_issue_creation: { type: 'boolean', default: true },
+    require_human_approval_before_merge: { type: 'boolean', default: true },
     created_at: { type: 'timestamp' },
     updated_at: { type: 'timestamp' },
   },
@@ -62,6 +78,10 @@ interface FactoryProjectDbRow extends Record<string, unknown> {
   slack_work_items_enabled: boolean;
   auto_run_enabled: boolean;
   auto_approve_plans: boolean;
+  auto_create_follow_up_issues: boolean;
+  auto_execute_follow_up_issues: boolean;
+  require_human_approval_for_issue_creation: boolean;
+  require_human_approval_before_merge: boolean;
   created_at: Date;
   updated_at: Date;
 }
@@ -77,6 +97,10 @@ function toFactoryProject(row: FactoryProjectDbRow): FactoryProject {
     slackWorkItemsEnabled: row.slack_work_items_enabled,
     autoRunEnabled: row.auto_run_enabled,
     autoApprovePlans: row.auto_approve_plans ?? false,
+    autoCreateFollowUpIssues: row.auto_create_follow_up_issues ?? false,
+    autoExecuteFollowUpIssues: row.auto_execute_follow_up_issues ?? false,
+    requireHumanApprovalForIssueCreation: row.require_human_approval_for_issue_creation ?? true,
+    requireHumanApprovalBeforeMerge: row.require_human_approval_before_merge ?? true,
     createdAt: row.created_at,
     updatedAt: row.updated_at,
   };
@@ -118,6 +142,10 @@ export class FactoryProjectsStorage extends FactoryStorageDomain {
       slack_work_items_enabled: false,
       auto_run_enabled: false,
       auto_approve_plans: false,
+      auto_create_follow_up_issues: false,
+      auto_execute_follow_up_issues: false,
+      require_human_approval_for_issue_creation: true,
+      require_human_approval_before_merge: true,
       created_at: now,
       updated_at: now,
     });
@@ -168,6 +196,14 @@ export class FactoryProjectsStorage extends FactoryStorageDomain {
       ...(input.slackWorkItemsEnabled !== undefined ? { slack_work_items_enabled: input.slackWorkItemsEnabled } : {}),
       ...(input.autoRunEnabled !== undefined ? { auto_run_enabled: input.autoRunEnabled } : {}),
       ...(input.autoApprovePlans !== undefined ? { auto_approve_plans: input.autoApprovePlans } : {}),
+      ...(input.autoCreateFollowUpIssues !== undefined ? { auto_create_follow_up_issues: input.autoCreateFollowUpIssues } : {}),
+      ...(input.autoExecuteFollowUpIssues !== undefined ? { auto_execute_follow_up_issues: input.autoExecuteFollowUpIssues } : {}),
+      ...(input.requireHumanApprovalForIssueCreation !== undefined
+        ? { require_human_approval_for_issue_creation: input.requireHumanApprovalForIssueCreation }
+        : {}),
+      ...(input.requireHumanApprovalBeforeMerge !== undefined
+        ? { require_human_approval_before_merge: input.requireHumanApprovalBeforeMerge }
+        : {}),
       updated_at: new Date(),
     }));
     return row ? toFactoryProject(row) : null;

@@ -58,6 +58,10 @@ export const updateProjectBodySchema = z
     slackWorkItemsEnabled: z.boolean().optional(),
     autoRunEnabled: z.boolean().optional(),
     autoApprovePlans: z.boolean().optional(),
+    autoCreateFollowUpIssues: z.boolean().optional(),
+    autoExecuteFollowUpIssues: z.boolean().optional(),
+    requireHumanApprovalForIssueCreation: z.boolean().optional(),
+    requireHumanApprovalBeforeMerge: z.boolean().optional(),
   })
   .refine(input => Object.keys(input).length > 0, { message: 'At least one project field is required' });
 

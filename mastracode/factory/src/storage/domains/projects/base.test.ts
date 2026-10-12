@@ -18,6 +18,12 @@ describe('FactoryProjectsStorage', () => {
       name: 'Platform',
       description: 'Internal platform work',
       slackWorkItemsEnabled: false,
+      autoRunEnabled: false,
+      autoApprovePlans: false,
+      autoCreateFollowUpIssues: false,
+      autoExecuteFollowUpIssues: false,
+      requireHumanApprovalForIssueCreation: true,
+      requireHumanApprovalBeforeMerge: true,
     });
     expect(await seed.projects.get({ orgId: 'org-1', id: project.id })).toEqual(project);
     expect(await seed.projects.get({ orgId: 'other-org', id: project.id })).toBeNull();
@@ -40,6 +46,26 @@ describe('FactoryProjectsStorage', () => {
       name: 'Renamed',
       description: 'Now documented',
       slackWorkItemsEnabled: true,
+    });
+    const policyUpdated = await seed.projects.update({
+      orgId: 'org-1',
+      id: first.id,
+      input: {
+        autoRunEnabled: true,
+        autoApprovePlans: true,
+        autoCreateFollowUpIssues: true,
+        autoExecuteFollowUpIssues: true,
+        requireHumanApprovalForIssueCreation: false,
+        requireHumanApprovalBeforeMerge: false,
+      },
+    });
+    expect(policyUpdated).toMatchObject({
+      autoRunEnabled: true,
+      autoApprovePlans: true,
+      autoCreateFollowUpIssues: true,
+      autoExecuteFollowUpIssues: true,
+      requireHumanApprovalForIssueCreation: false,
+      requireHumanApprovalBeforeMerge: false,
     });
     expect(await seed.projects.update({ orgId: 'org-2', id: first.id, input: { name: 'Nope' } })).toBeNull();
 
