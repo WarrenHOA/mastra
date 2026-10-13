@@ -1,5 +1,5 @@
-import { AUTO_TRIAGED_LABEL, NEEDS_APPROVAL_LABEL } from '@mastra/factory/rules/types';
-import { workItemBranch, workItemThreadTitle } from '@mastra/factory/work-item-branch';
+import { AUTO_TRIAGED_LABEL, NEEDS_APPROVAL_LABEL } from '@warrenhoa/factory/rules/types';
+import { workItemBranch, workItemThreadTitle } from '@warrenhoa/factory/work-item-branch';
 import { isValid } from 'date-fns';
 
 import { relativeTime } from '../../../lib/date/relativeTime';

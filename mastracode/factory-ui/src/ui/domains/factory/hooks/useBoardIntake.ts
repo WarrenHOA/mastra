@@ -1,4 +1,4 @@
-import { AUTO_TRIAGED_LABEL } from '@mastra/factory/rules/types';
+import { AUTO_TRIAGED_LABEL } from '@warrenhoa/factory/rules/types';
 import { useState } from 'react';
 
 import { useProjectIssuesQuery, useProjectPullRequestsQuery } from '../../../../hooks/useFactoryData';

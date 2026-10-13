@@ -18,7 +18,7 @@
     "@mastra/client-js": "workspace:*",
     "@mastra/code-sdk": "workspace:*",
     "@mastra/core": "workspace:*",
-    "@mastra/factory": "workspace:*",
+    "@warrenhoa/factory": "workspace:*",
     "@mastra/playground-ui": "workspace:*",
     "@mastra/react": "workspace:*",
     "@nangohq/frontend": "0.71.6",

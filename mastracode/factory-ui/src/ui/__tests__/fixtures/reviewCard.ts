@@ -1,4 +1,4 @@
-import type { WorkItemRow } from '@mastra/factory/storage/domains/work-items/base';
+import type { WorkItemRow } from '@warrenhoa/factory/storage/domains/work-items/base';
 import type { FactoryDecisionSummary } from '../../domains/factory/services/decisions';
 import type { GithubPullRequest } from '../../domains/factory/services/factory';
 

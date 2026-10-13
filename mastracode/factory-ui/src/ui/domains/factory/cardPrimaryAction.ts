@@ -1,5 +1,5 @@
-import { FACTORY_ROLE_STAGES, isFactoryRole, needsApproval } from '@mastra/factory/rules/types';
-import type { FactoryRole, FactoryRuleStage } from '@mastra/factory/rules/types';
+import { FACTORY_ROLE_STAGES, isFactoryRole, needsApproval } from '@warrenhoa/factory/rules/types';
+import type { FactoryRole, FactoryRuleStage } from '@warrenhoa/factory/rules/types';
 import type { BoardCardState, BoardCardStatus } from './boardCardState';
 import { itemSessionSpec, pullRequestStatusForItem } from './boardItems';
 import type { WorkItem, WorkItemSessionRef } from './services/workItems';

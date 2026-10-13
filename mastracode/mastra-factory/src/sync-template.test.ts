@@ -16,7 +16,7 @@ const TEMPLATE_LINKED_DEPENDENCIES = [
   '@mastra/code-sdk',
   '@mastra/core',
   '@mastra/e2b',
-  '@mastra/factory',
+  '@warrenhoa/factory',
   '@mastra/libsql',
   '@mastra/pg',
   '@mastra/platform-workspace',
@@ -137,7 +137,7 @@ describe.skipIf(process.platform === 'win32')('sync-template.mjs', () => {
       'src/ui',
       'src/vite.config.ts',
       'src/mastra/public',
-      // Slack ships inside @mastra/factory; the scaffold imports it rather
+      // Slack ships inside @warrenhoa/factory; the scaffold imports it rather
       // than carrying a vendored copy it would have to maintain.
       'src/web',
     ]) {
@@ -169,7 +169,7 @@ describe.skipIf(process.platform === 'win32')('sync-template.mjs', () => {
       '@mastra/code-sdk',
       '@mastra/core',
       '@mastra/e2b',
-      '@mastra/factory',
+      '@warrenhoa/factory',
       '@mastra/libsql',
       '@mastra/memory',
       '@mastra/pg',

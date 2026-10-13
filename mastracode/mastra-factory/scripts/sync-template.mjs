@@ -60,12 +60,12 @@ const RUNTIME_DEPENDENCIES = [
   '@mastra/code-sdk',
   '@mastra/core',
   '@mastra/e2b',
-  '@mastra/factory',
+  '@warrenhoa/factory',
   '@mastra/libsql',
   '@mastra/pg',
   '@mastra/platform-workspace',
   '@mastra/redis-streams',
-  // @mastra/factory's runtime schema surface is externalized by the CLI build.
+  // @warrenhoa/factory's runtime schema surface is externalized by the CLI build.
   'zod',
 ];
 const TOOL_DEPENDENCIES = ['@types/node', 'mastra', 'typescript', 'varlock'];

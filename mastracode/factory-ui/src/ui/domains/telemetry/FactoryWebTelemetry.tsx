@@ -1,4 +1,4 @@
-import type { FactoryWebActivity } from '@mastra/factory/telemetry-types';
+import type { FactoryWebActivity } from '@warrenhoa/factory/telemetry-types';
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router';
 

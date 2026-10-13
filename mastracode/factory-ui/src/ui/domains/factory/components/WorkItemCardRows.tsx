@@ -1,4 +1,4 @@
-import { knownExternalAuthor } from '@mastra/factory/rules/types';
+import { knownExternalAuthor } from '@warrenhoa/factory/rules/types';
 import { Badge } from '@mastra/playground-ui/components/Badge';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@mastra/playground-ui/components/Tooltip';
 import { cn } from '@mastra/playground-ui/utils/cn';

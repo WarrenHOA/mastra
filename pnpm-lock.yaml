@@ -2480,20 +2480,20 @@ importers:
   mastracode/factory:
     dependencies:
       '@mastra/auth-studio':
-        specifier: workspace:*
-        version: link:../../auth/studio
+        specifier: 1.3.9
+        version: 1.3.9
       '@mastra/auth-workos':
-        specifier: workspace:*
-        version: link:../../auth/workos
+        specifier: 1.6.6
+        version: 1.6.6
       '@mastra/code-sdk':
-        specifier: workspace:*
-        version: link:../sdk
+        specifier: 1.12.1-alpha.1
+        version: 1.12.1-alpha.1
       '@mastra/core':
-        specifier: workspace:*
-        version: link:../../packages/core
+        specifier: 1.77.0-alpha.1
+        version: 1.77.0-alpha.1
       '@mastra/slack':
-        specifier: workspace:*
-        version: link:../../channels/slack
+        specifier: 1.7.2
+        version: 1.7.2
       '@octokit/auth-app':
         specifier: ^8.0.0
         version: 8.2.0
@@ -2510,7 +2510,7 @@ importers:
         specifier: ^5.46.1
         version: 5.48.0(rxjs@7.8.2)
       zod:
-        specifier: 'catalog:'
+        specifier: 4.6.5
         version: 4.6.5
     devDependencies:
       '@internal/lint':
@@ -2561,7 +2561,7 @@ importers:
       '@mastra/core':
         specifier: workspace:*
         version: link:../../packages/core
-      '@mastra/factory':
+      '@warrenhoa/factory':
         specifier: workspace:*
         version: link:../factory
       '@mastra/playground-ui':

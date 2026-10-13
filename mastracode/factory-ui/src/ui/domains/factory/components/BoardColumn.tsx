@@ -1,4 +1,4 @@
-import type { BoardPhaseKind } from '@mastra/factory/boards';
+import type { BoardPhaseKind } from '@warrenhoa/factory/boards';
 import { Skeleton } from '@mastra/playground-ui/components/Skeleton';
 import { Txt } from '@mastra/playground-ui/components/Txt';
 import { cn } from '@mastra/playground-ui/utils/cn';

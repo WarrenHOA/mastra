@@ -1,4 +1,4 @@
-import type { FactoryDispatchFailureCode } from '@mastra/factory/storage/domains/work-items/base';
+import type { FactoryDispatchFailureCode } from '@warrenhoa/factory/storage/domains/work-items/base';
 
 /** `dismissed` is human rejection; `superseded` means newer Factory state made a proposal obsolete. */
 export type FactoryDecisionStatus =

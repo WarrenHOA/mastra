@@ -5,7 +5,7 @@ import { join } from 'node:path';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 
 import { AuthStorage } from '@mastra/code-sdk/auth/storage';
-import { listProviders } from '@mastra/factory/routes/config';
+import { listProviders } from '@warrenhoa/factory/routes/config';
 
 /**
  * The web settings panel manages provider API keys through the same

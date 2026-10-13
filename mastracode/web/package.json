@@ -27,7 +27,7 @@
     "@mastra/auth-workos": "link:../../auth/workos",
     "@mastra/code-sdk": "link:../sdk",
     "@mastra/core": "link:../../packages/core",
-    "@mastra/factory": "link:../factory",
+    "@warrenhoa/factory": "link:../factory",
     "@mastra/libsql": "link:../../stores/libsql",
     "@mastra/pg": "link:../../stores/pg",
     "@mastra/e2b": "link:../../workspaces/e2b",

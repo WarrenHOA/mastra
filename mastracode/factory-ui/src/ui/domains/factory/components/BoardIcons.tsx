@@ -1,4 +1,4 @@
-import type { BoardPhaseKind } from '@mastra/factory/boards';
+import type { BoardPhaseKind } from '@warrenhoa/factory/boards';
 import { GithubIcon } from '@mastra/playground-ui/icons/GithubIcon';
 import { LinearIcon } from '@mastra/playground-ui/icons/LinearIcon';
 import { SlackIcon } from '@mastra/playground-ui/icons/SlackIcon';
