@@ -15,13 +15,13 @@ export interface FactoryProject {
   autoRunEnabled: boolean;
   /** Whether the Factory answers a run's plan itself instead of waiting for a person. */
   autoApprovePlans: boolean;
-  /** Whether autonomous child issue creation is enabled for this project. */
+  /** Whether autonomous child issue creation is enabled for this project (default: false). */
   autoCreateFollowUpIssues: boolean;
-  /** Whether newly created follow-up issues may be executed automatically. */
+  /** Whether newly created follow-up issues may be executed automatically (default: false). */
   autoExecuteFollowUpIssues: boolean;
-  /** Whether a human must approve creation of follow-up issues. */
+  /** Whether a human must approve creation of follow-up issues (default: true). */
   requireHumanApprovalForIssueCreation: boolean;
-  /** Whether a human must approve merges initiated by Factory automation. */
+  /** Whether a human must approve merges initiated by Factory automation (default: true). */
   requireHumanApprovalBeforeMerge: boolean;
   createdAt: Date;
   updatedAt: Date;

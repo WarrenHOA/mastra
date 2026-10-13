@@ -58,6 +58,7 @@ export const updateProjectBodySchema = z
     slackWorkItemsEnabled: z.boolean().optional(),
     autoRunEnabled: z.boolean().optional(),
     autoApprovePlans: z.boolean().optional(),
+    // Persisted project policy controls; runtime approval enforcement is handled by lifecycle services.
     autoCreateFollowUpIssues: z.boolean().optional(),
     autoExecuteFollowUpIssues: z.boolean().optional(),
     requireHumanApprovalForIssueCreation: z.boolean().optional(),
