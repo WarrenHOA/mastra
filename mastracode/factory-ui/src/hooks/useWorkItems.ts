@@ -1,4 +1,4 @@
-import type { FactoryRuleStage } from '@mastra/factory/rules/types';
+import type { FactoryRuleStage } from '@warrenhoa/factory/rules/types';
 import type { QueryClient, QueryKey } from '@tanstack/react-query';
 import {
   queryOptions,

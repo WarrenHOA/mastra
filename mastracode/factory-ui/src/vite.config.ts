@@ -255,7 +255,7 @@ const routesManifestPlugin = (): Plugin => {
  * The production build outputs the static SPA for inclusion in the Mastra CLI.
  * `mastra build` then copies that versioned CLI artifact into `.mastra/output/`
  * beside the server bundle, which serves it same-origin at `/` (see
- * @mastra/factory/spa-static). `MASTRACODE_OUT_DIR` and `MASTRACODE_ENV_DIR`
+ * @warrenhoa/factory/spa-static). `MASTRACODE_OUT_DIR` and `MASTRACODE_ENV_DIR`
  * remain available for local artifact and environment overrides. Hosting the
  * SPA separately (static host / CDN, cross-origin via
  * MASTRACODE_ALLOWED_ORIGINS) remains possible.

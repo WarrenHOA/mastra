@@ -1,5 +1,5 @@
-import type { FactoryHealthRepair } from '@mastra/factory/supervisor/health';
-import type { FactoryDispatchFailureCode } from '@mastra/factory/storage/domains/work-items/base';
+import type { FactoryHealthRepair } from '@warrenhoa/factory/supervisor/health';
+import type { FactoryDispatchFailureCode } from '@warrenhoa/factory/storage/domains/work-items/base';
 
 import { boardPath } from '../boardCatalog';
 import { requestJson } from './request';

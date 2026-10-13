@@ -3,7 +3,7 @@ import type {
   FactoryHealthFindingKind,
   FactoryHealthRepair,
   FactoryHealthReport,
-} from '@mastra/factory/supervisor/health';
+} from '@warrenhoa/factory/supervisor/health';
 
 import { requestJson } from '../../factory/services/request';
 

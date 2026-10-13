@@ -12,7 +12,7 @@ pnpm --dir mastracode/web dev:ui
 
 Open `http://localhost:5173`. To restart one side without losing the other, start the Docker services with `pnpm --dir mastracode/web db:up`, then run `pnpm --dir mastracode/web api` and `pnpm --filter ./mastracode/factory-ui dev` in separate terminals.
 
-Keep policy, validation, and persistence in [`@mastra/factory`](../factory/README.md), not in React.
+Keep policy, validation, and persistence in [`@warrenhoa/factory`](../factory/README.md), not in React.
 
 ## Board activity
 

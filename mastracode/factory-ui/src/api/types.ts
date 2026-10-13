@@ -10,7 +10,7 @@
  * into the shared/platform-agnostic bundle.
  */
 import type { z } from 'zod';
-import type { FACTORY_ROUTE_CONTRACTS } from '@mastra/factory/routes/contracts';
+import type { FACTORY_ROUTE_CONTRACTS } from '@warrenhoa/factory/routes/contracts';
 
 export type BoardCatalogResponse = z.infer<typeof FACTORY_ROUTE_CONTRACTS.boardCatalog.responseSchema>;
 export type InstalledBoardInfo = BoardCatalogResponse['boards'][number];
@@ -23,7 +23,7 @@ import type {
   ProviderOMDefaultsResponse,
   ThinkingConfigInfo,
   UpdateThinkingConfigResponse,
-} from '@mastra/factory/routes/config';
+} from '@warrenhoa/factory/routes/config';
 import type {
   ArtifactEntry,
   ArtifactListing,
@@ -37,7 +37,7 @@ import type {
   WorkspaceFilesListing,
   WorkspaceRenderedEntry,
   WorkspaceRenderedListing,
-} from '@mastra/factory/routes/fs';
+} from '@warrenhoa/factory/routes/fs';
 
 export type {
   ProviderInfo,

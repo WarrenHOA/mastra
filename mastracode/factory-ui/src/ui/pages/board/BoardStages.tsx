@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import type { BoardPhaseKind } from '@mastra/factory/boards';
+import type { BoardPhaseKind } from '@warrenhoa/factory/boards';
 import { cn } from '@mastra/playground-ui/utils/cn';
 import type { BoardLayout } from '../../domains/factory/boardLayout';
 import type { DragPayload } from '../../domains/factory/boardDrag';

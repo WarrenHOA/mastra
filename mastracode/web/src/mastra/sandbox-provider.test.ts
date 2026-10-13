@@ -1,8 +1,8 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import type * as factoryModule from '@mastra/factory';
+import type * as factoryModule from '@warrenhoa/factory';
 
 const factoryConfigs = vi.hoisted(() => [] as Array<ConstructorParameters<typeof factoryModule.MastraFactory>[0]>);
-vi.mock('@mastra/factory', async importOriginal => {
+vi.mock('@warrenhoa/factory', async importOriginal => {
   const actual = await importOriginal<typeof factoryModule>();
   class TrackedMastraFactory extends actual.MastraFactory {
     constructor(config: ConstructorParameters<typeof actual.MastraFactory>[0]) {

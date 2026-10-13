@@ -1,4 +1,4 @@
-import { FACTORY_RULE_STAGES } from '@mastra/factory/rules/types';
+import { FACTORY_RULE_STAGES } from '@warrenhoa/factory/rules/types';
 
 import { describe, expect, it } from 'vitest';
 

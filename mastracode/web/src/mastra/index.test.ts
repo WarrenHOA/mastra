@@ -1,10 +1,10 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { Hono } from 'hono';
-import type * as factoryModule from '@mastra/factory';
-import { AUTO_TRIAGED_LABEL } from '@mastra/factory/rules/types';
+import type * as factoryModule from '@warrenhoa/factory';
+import { AUTO_TRIAGED_LABEL } from '@warrenhoa/factory/rules/types';
 
 const factoryConfigs = vi.hoisted(() => [] as Array<ConstructorParameters<typeof factoryModule.MastraFactory>[0]>);
-vi.mock('@mastra/factory', async importOriginal => {
+vi.mock('@warrenhoa/factory', async importOriginal => {
   const actual = await importOriginal<typeof factoryModule>();
   class TrackedMastraFactory extends actual.MastraFactory {
     constructor(config: ConstructorParameters<typeof actual.MastraFactory>[0]) {
@@ -120,7 +120,7 @@ describe('platform entry (src/mastra/index.ts)', () => {
     vi.stubEnv('GITHUB_APP_SLUG', 'factory-app');
     vi.stubEnv('GITHUB_APP_WEBHOOK_SECRET', 'test-webhook-secret');
     const { factoryConfigVersion } = await import('./index.js');
-    const { GithubIntegration } = await import('@mastra/factory/integrations/github/integration');
+    const { GithubIntegration } = await import('@warrenhoa/factory/integrations/github/integration');
     const github = factoryConfigs[0]?.integrations?.find(
       (integration): integration is InstanceType<typeof GithubIntegration> => integration instanceof GithubIntegration,
     );
@@ -188,7 +188,7 @@ describe('platform entry (src/mastra/index.ts)', () => {
     vi.stubEnv('GITHUB_APP_SLUG', 'factory-app');
     vi.stubEnv('GITHUB_APP_WEBHOOK_SECRET', 'test-webhook-secret');
     const { factoryConfigVersion } = await import('./index.js');
-    const { GithubIntegration } = await import('@mastra/factory/integrations/github/integration');
+    const { GithubIntegration } = await import('@warrenhoa/factory/integrations/github/integration');
     const github = factoryConfigs[0]?.integrations?.find(
       (integration): integration is InstanceType<typeof GithubIntegration> => integration instanceof GithubIntegration,
     );
@@ -300,7 +300,7 @@ describe('platform entry (src/mastra/index.ts)', () => {
     vi.stubEnv('GITHUB_APP_SLUG', 'factory-app');
     vi.stubEnv('GITHUB_APP_WEBHOOK_SECRET', 'test-webhook-secret');
     const { factoryConfigVersion } = await import('./index.js');
-    const { GithubIntegration } = await import('@mastra/factory/integrations/github/integration');
+    const { GithubIntegration } = await import('@warrenhoa/factory/integrations/github/integration');
     const github = factoryConfigs[0]?.integrations?.find(
       (integration): integration is InstanceType<typeof GithubIntegration> => integration instanceof GithubIntegration,
     );

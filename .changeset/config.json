@@ -19,6 +19,7 @@
     "!create-factory",
     "!mastracode",
     "!@mastra/*",
+    "!@warrenhoa/*",
     "!@internal/playground",
     "!@internal/core"
   ]

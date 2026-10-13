@@ -1,10 +1,10 @@
 import { LibSQLFactoryStorage } from '@mastra/libsql';
-import { MemorySettingsStorage } from '@mastra/factory/storage/domains/memory-settings/base';
-import { ConfigRoutes } from '@mastra/factory/routes/config';
+import { MemorySettingsStorage } from '@warrenhoa/factory/storage/domains/memory-settings/base';
+import { ConfigRoutes } from '@warrenhoa/factory/routes/config';
 import { Hono } from 'hono';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 
-import type { RouteAuth } from '@mastra/factory/routes/route';
+import type { RouteAuth } from '@warrenhoa/factory/routes/route';
 
 /**
  * The web settings panel owns observational memory through the real

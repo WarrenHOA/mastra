@@ -1,4 +1,4 @@
-import type { FactoryRosterMember } from '@mastra/factory/storage/domains/comments/domain';
+import type { FactoryRosterMember } from '@warrenhoa/factory/storage/domains/comments/domain';
 
 import { requestJson } from './request';
 
