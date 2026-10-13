@@ -169,12 +169,12 @@ describe.skipIf(process.platform === 'win32')('sync-template.mjs', () => {
       '@mastra/code-sdk',
       '@mastra/core',
       '@mastra/e2b',
-      '@warrenhoa/factory',
       '@mastra/libsql',
       '@mastra/memory',
       '@mastra/pg',
       '@mastra/platform-workspace',
       '@mastra/redis-streams',
+      '@warrenhoa/factory',
       'zod',
     ]);
     expect(pkg.devDependencies.typescript).toMatch(/^\^5\./);
