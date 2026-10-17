@@ -6,7 +6,7 @@
  * storage, vector), plain values for config (publicUrl, origins) — so anyone
  * reading the entry sees exactly which env var feeds which slot.
  * Everything else (feature readiness, route/middleware assembly, controller
- * construction) lives in `MastraFactory` (`@mastra/factory`).
+ * construction) lives in `MastraFactory` (`@warrenhoa/factory`).
  *
  * `mastra build` requires the entry to export a `Mastra` instance named
  * `mastra` constructed by a literal `new Mastra(...)` in THIS file (validated
@@ -29,15 +29,15 @@ import { RedisStreamsPubSub } from '@mastra/redis-streams';
 import { getDatabasePath } from '@mastra/code-sdk/utils/project';
 import { DEFAULT_RETENTION } from '@mastra/code-sdk/utils/storage-maintenance';
 import { MastraAuthWorkos } from '@mastra/auth-workos';
-import { createFactorySecretEncryption, MastraFactory } from '@mastra/factory';
-import { GithubIntegration } from '@mastra/factory/integrations/github/integration';
-import { GitLabIntegration } from '@mastra/factory/integrations/gitlab/integration';
-import { parseAuthorizedBotsEnv } from '@mastra/factory/integrations/github/webhook';
-import { IncidentioIntegration } from '@mastra/factory/integrations/incidentio/integration';
-import { JiraIntegration } from '@mastra/factory/integrations/jira/integration';
-import { PlatformJiraIntegration } from '@mastra/factory/integrations/platform/jira/integration';
-import { LinearIntegration } from '@mastra/factory/integrations/linear/integration';
-import { SlackIntegration } from '@mastra/factory/integrations/slack/integration';
+import { createFactorySecretEncryption, MastraFactory } from '@warrenhoa/factory';
+import { GithubIntegration } from '@warrenhoa/factory/integrations/github/integration';
+import { GitLabIntegration } from '@warrenhoa/factory/integrations/gitlab/integration';
+import { parseAuthorizedBotsEnv } from '@warrenhoa/factory/integrations/github/webhook';
+import { IncidentioIntegration } from '@warrenhoa/factory/integrations/incidentio/integration';
+import { JiraIntegration } from '@warrenhoa/factory/integrations/jira/integration';
+import { PlatformJiraIntegration } from '@warrenhoa/factory/integrations/platform/jira/integration';
+import { LinearIntegration } from '@warrenhoa/factory/integrations/linear/integration';
+import { SlackIntegration } from '@warrenhoa/factory/integrations/slack/integration';
 import type { IMastraAuthProvider } from '@mastra/core/server';
 
 /**

@@ -6,7 +6,7 @@
  * org-wide, so every member of the org reads and moves the same cards.
  */
 
-import type { FactoryRuleStage, FactoryTriageType } from '@mastra/factory/rules/types';
+import type { FactoryRuleStage, FactoryTriageType } from '@warrenhoa/factory/rules/types';
 
 import { requestJson } from './request';
 

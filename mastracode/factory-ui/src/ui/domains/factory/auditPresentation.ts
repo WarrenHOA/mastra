@@ -1,5 +1,5 @@
-import { auditNamespaces, parseAuditAction } from '@mastra/factory/storage/domains/audit/actions';
-import type { AuditNamespace } from '@mastra/factory/storage/domains/audit/actions';
+import { auditNamespaces, parseAuditAction } from '@warrenhoa/factory/storage/domains/audit/actions';
+import type { AuditNamespace } from '@warrenhoa/factory/storage/domains/audit/actions';
 import type { BadgeVariant } from '@mastra/playground-ui/components/Badge';
 
 import type { AuditEvent } from './services/audit';

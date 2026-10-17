@@ -1,4 +1,4 @@
-import type { FACTORY_RULE_STAGES, FactoryRuleBoard, FactoryRuleStage } from '@mastra/factory/rules/types';
+import type { FACTORY_RULE_STAGES, FactoryRuleBoard, FactoryRuleStage } from '@warrenhoa/factory/rules/types';
 
 import type { WorkItem } from './services/workItems';
 import { BOARD_STAGES, stageLabel, stageOrder } from './stages';

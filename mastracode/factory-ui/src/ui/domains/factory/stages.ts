@@ -1,6 +1,6 @@
 import type { BadgeVariant } from '@mastra/playground-ui/components/Badge';
-import type { FactoryRuleStage } from '@mastra/factory/rules/types';
-import { FACTORY_RULE_STAGES } from '@mastra/factory/rules/types';
+import type { FactoryRuleStage } from '@warrenhoa/factory/rules/types';
+import { FACTORY_RULE_STAGES } from '@warrenhoa/factory/rules/types';
 
 const BOARD_STAGE_LABELS = {
   intake: 'Intake',

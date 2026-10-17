@@ -2,6 +2,6 @@
 # because it lives under the Mastra entry's public/ dir.
 src/mastra/public/factory/
 
-# Factory skill assets — copied from @mastra/factory by
+# Factory skill assets — copied from @warrenhoa/factory by
 # scripts/copy-factory-skills.mjs during web:ui:build.
 src/mastra/public/factory-skills/

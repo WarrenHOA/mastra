@@ -1,6 +1,6 @@
 /** `stageHistory` ships in full on every card, so the whole stream is a client-side read — no window, no second endpoint. */
 
-import type { AuditAction } from '@mastra/factory/storage/domains/audit/actions';
+import type { AuditAction } from '@warrenhoa/factory/storage/domains/audit/actions';
 
 import type { BoardKind } from './boardStages';
 import { itemBoard } from './boardStages';

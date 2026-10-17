@@ -1,4 +1,4 @@
-import type { RepositoryCommit } from '@mastra/factory/integrations/github/commits';
+import type { RepositoryCommit } from '@warrenhoa/factory/integrations/github/commits';
 
 import { requestJson } from './request';
 

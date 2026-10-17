@@ -1,4 +1,4 @@
-import { isHumanActorId } from '@mastra/factory/storage/domains/audit/actors';
+import { isHumanActorId } from '@warrenhoa/factory/storage/domains/audit/actors';
 
 import type { BoardCandidate } from './boardCandidates';
 import type { BoardKind } from './boardStages';

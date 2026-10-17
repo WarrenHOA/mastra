@@ -1,5 +1,5 @@
-import { FACTORY_WEB_PAGES } from '@mastra/factory/telemetry-types';
-import type { FactoryWebActivity } from '@mastra/factory/telemetry-types';
+import { FACTORY_WEB_PAGES } from '@warrenhoa/factory/telemetry-types';
+import type { FactoryWebActivity } from '@warrenhoa/factory/telemetry-types';
 
 /** Only known screen categories cross the network, never route parameters. */
 export function telemetryPage(pathname: string): FactoryWebActivity['page'] | undefined {

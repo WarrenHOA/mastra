@@ -1,6 +1,6 @@
-import { isAuditActorType } from '@mastra/factory/storage/domains/audit/actors';
-import type { AuditTarget } from '@mastra/factory/storage/domains/audit/base';
-import type { WireAuditActor, WireAuditEvent, WireAuditPage } from '@mastra/factory/storage/domains/audit/wire';
+import { isAuditActorType } from '@warrenhoa/factory/storage/domains/audit/actors';
+import type { AuditTarget } from '@warrenhoa/factory/storage/domains/audit/base';
+import type { WireAuditActor, WireAuditEvent, WireAuditPage } from '@warrenhoa/factory/storage/domains/audit/wire';
 
 export type { AuditTarget };
 export type AuditActorProfile = WireAuditActor;

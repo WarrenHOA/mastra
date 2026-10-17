@@ -3,8 +3,8 @@
  * and the UI move together or the build breaks.
  */
 
-import type { FactoryMentionRef, WorkItemCommentReplyRef } from '@mastra/factory/storage/domains/comments/base';
-import type { WireComment, WireCommentAuthor, WireCommentPage } from '@mastra/factory/storage/domains/comments/wire';
+import type { FactoryMentionRef, WorkItemCommentReplyRef } from '@warrenhoa/factory/storage/domains/comments/base';
+import type { WireComment, WireCommentAuthor, WireCommentPage } from '@warrenhoa/factory/storage/domains/comments/wire';
 
 export type WorkItemComment = WireComment;
 export type WorkItemCommentPage = WireCommentPage;

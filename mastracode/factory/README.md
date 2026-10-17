@@ -1,13 +1,13 @@
-# @mastra/factory
+# @warrenhoa/factory
 
-`@mastra/factory` is the reusable backend for Mastra Software Factory. It owns Factory storage domains, routes, rules, integrations, sandboxes, and Factory-specific agent behavior.
+`@warrenhoa/factory` is the reusable backend for Mastra Software Factory. It owns Factory storage domains, routes, rules, integrations, sandboxes, and Factory-specific agent behavior.
 
 Put React code in [`factory-ui`](../factory-ui/README.md), host wiring in [`web`](../web/README.md), and shared agent-controller behavior in [`sdk`](../sdk/README.md).
 
 ## Installation
 
 ```bash
-npm install @mastra/factory
+npm install @warrenhoa/factory
 ```
 
 ## Usage
@@ -15,8 +15,8 @@ npm install @mastra/factory
 Provide a configured `FactoryStorage` backend.
 
 ```typescript
-import { MastraFactory } from '@mastra/factory';
-import type { MastraFactoryConfig } from '@mastra/factory';
+import { MastraFactory } from '@warrenhoa/factory';
+import type { MastraFactoryConfig } from '@warrenhoa/factory';
 
 export function createFactory(storage: MastraFactoryConfig['storage']) {
   return new MastraFactory({ storage });
@@ -60,9 +60,9 @@ MASTRA_TELEMETRY_DISABLED=true
 Installed board definitions exclusively own phase entry and exit handlers. Work and Review are installed automatically with Mastra's preferred defaults; no rule configuration is needed. Custom boards declare source-specific `onEnter` and `onExit` handlers through `defineBoard()`:
 
 ```typescript
-import { MastraFactory } from '@mastra/factory';
-import type { MastraFactoryConfig } from '@mastra/factory';
-import { defineBoard } from '@mastra/factory/boards';
+import { MastraFactory } from '@warrenhoa/factory';
+import type { MastraFactoryConfig } from '@warrenhoa/factory';
+import { defineBoard } from '@warrenhoa/factory/boards';
 
 const releaseBoard = defineBoard({
   id: 'release',
@@ -88,7 +88,7 @@ export function createFactory(storage: MastraFactoryConfig['storage']) {
 Handlers return one typed decision or `undefined`. Supported sources are `issue`, `pullRequest`, `linearIssue`, and `manual`. Each Factory instance resolves handlers from its installed definitions. To replace Work or Review, disable both default boards and install a board with the same ID. You can reinstall the exported `workBoard` and `reviewBoard` definitions unchanged, or use their phases as the starting point for a customized definition:
 
 ```typescript
-import { MastraFactory, workBoard } from '@mastra/factory';
+import { MastraFactory, workBoard } from '@warrenhoa/factory';
 
 const factory = new MastraFactory({
   storage,
@@ -144,8 +144,8 @@ Work declares `{ completed: 'done', canceled: 'canceled' }`. A board without `so
 A board may react to a tool result produced inside one of its seats. Declare handlers under `tools`, keyed by tool name:
 
 ```typescript
-import { defineBoard } from '@mastra/factory/boards';
-import type { BoardToolResultRuleHandler } from '@mastra/factory/boards';
+import { defineBoard } from '@warrenhoa/factory/boards';
+import type { BoardToolResultRuleHandler } from '@warrenhoa/factory/boards';
 
 const shipIt: BoardToolResultRuleHandler = context => {
   if (context.result.status !== 'success' || context.item.stages[0] !== 'queued') return;
@@ -173,7 +173,7 @@ Work declares one rule: `submit_plan`. When a `plan`-seated agent on a Planning 
 A board can declare how its own cards react to GitHub, GitLab, Linear, Jira, and incident.io events. Declare handlers under `events`, keyed by integration and then by event name:
 
 ```ts
-import { defineBoard } from '@mastra/factory';
+import { defineBoard } from '@warrenhoa/factory';
 
 const deliveryBoard = defineBoard({
   id: 'delivery',
@@ -227,7 +227,7 @@ Unknown integrations, unknown event names, and handler values other than a funct
 new MastraFactory({ storage, configVersion: 'deployment-v2' });
 ```
 
-**Migration:** The `rules` option, `FactoryRules`, `defaultFactoryRules`, and the `@mastra/factory/rules/defaults` subpath are gone. Passing `rules` throws at construction with a pointer to the replacements.
+**Migration:** The `rules` option, `FactoryRules`, `defaultFactoryRules`, and the `@warrenhoa/factory/rules/defaults` subpath are gone. Passing `rules` throws at construction with a pointer to the replacements.
 
 ```typescript
 // before
@@ -245,8 +245,8 @@ Boards own three separate concerns: topology declares which moves exist, `transi
 Work automatically supplies its classification requirement, non-bug human-approval gate, and acceptance decision. Classified non-bug items without recorded acceptance require a human transition into Planning or Execute, regardless of their previous phase. Passing through Review does not grant approval. Historical items without an acceptance stamp also require this human transition; once acceptance is recorded, agents can continue the work. Review has no additional transition policy. Custom boards without a policy do not inherit Work's classification requirements or acceptance stamping, even if they use Work phase names or an agent role named `triage`.
 
 ```typescript
-import { defineBoard } from '@mastra/factory/boards';
-import type { BoardTransitionPolicy } from '@mastra/factory/boards';
+import { defineBoard } from '@warrenhoa/factory/boards';
+import type { BoardTransitionPolicy } from '@warrenhoa/factory/boards';
 
 const releasePolicy: BoardTransitionPolicy = context => {
   if (context.toStage === 'shipped' && !context.isHumanTransition) {
@@ -325,10 +325,10 @@ Installed custom boards can create linked items, start working roles, transition
 This configuration runs a release rehearsal through `queued → preparing → shipping → shipped`. Add it to an existing Factory host with configured storage, a GitHub integration, a connected project repository, a sandbox, and organization-scoped model credentials. Enable automatic runs for the project. The repository must contain a `release:check` package script; it should validate the release without publishing it.
 
 ```typescript
-import { MastraFactory } from '@mastra/factory';
-import type { MastraFactoryConfig } from '@mastra/factory';
-import { defineBoard } from '@mastra/factory/boards';
-import type { BoardPhaseDefinition } from '@mastra/factory/boards';
+import { MastraFactory } from '@warrenhoa/factory';
+import type { MastraFactoryConfig } from '@warrenhoa/factory';
+import { defineBoard } from '@warrenhoa/factory/boards';
+import type { BoardPhaseDefinition } from '@warrenhoa/factory/boards';
 
 type ReleasePhase = 'queued' | 'preparing' | 'shipping' | 'shipped';
 
@@ -437,7 +437,7 @@ Intake bindings are explicit. A Linear project, Jira project, or GitHub reposito
 Both `GithubIntegration` and `PlatformGithubIntegration` own their GitHub event handlers. Existing installations retain the defaults without additional configuration.
 
 ```typescript
-import { PlatformGithubIntegration } from '@mastra/factory/integrations/platform/github/integration';
+import { PlatformGithubIntegration } from '@warrenhoa/factory/integrations/platform/github/integration';
 
 const github = new PlatformGithubIntegration({
   rules: {
@@ -456,7 +456,7 @@ Pass the integration in `MastraFactory`'s `integrations` array. The direct `Gith
 When Platform credentials are present, `MastraFactory` installs a `PlatformGithubIntegration` itself, so a deploy can change its handlers without constructing one. Pass the same options under `platform.github` and they are forwarded to that integration's constructor:
 
 ```typescript
-import { MastraFactory } from '@mastra/factory';
+import { MastraFactory } from '@warrenhoa/factory';
 
 // Your own label → board mapping (Settings › Intake › GitHub label routes remain
 // the stored, per-project alternative when labels alone are enough).
@@ -487,7 +487,7 @@ new MastraFactory({
 });
 ```
 
-`platform.github` applies only to the integration the factory installs itself. An explicit `github` entry in `integrations` takes precedence and makes the key a no-op; the factory warns rather than ignoring it silently, and warns the same way when no Platform credentials and no explicit GitHub integration are present. `GithubRuleOverrides` (the `rules` option type) is exported from `@mastra/factory`.
+`platform.github` applies only to the integration the factory installs itself. An explicit `github` entry in `integrations` takes precedence and makes the key a no-op; the factory warns rather than ignoring it silently, and warns the same way when no Platform credentials and no explicit GitHub integration are present. `GithubRuleOverrides` (the `rules` option type) is exported from `@warrenhoa/factory`.
 
 **Migration:** Move each global `rules.github[event].onEvent` value to the integration constructor's `rules[event]` option:
 
@@ -506,8 +506,8 @@ Handlers receive the existing typed GitHub context and return one decision or `u
 **Placement, not transition.** An `upsertLinkedWorkItem` decision normally names a destination: the card is materialized on the board's initial phase, the arrival rule runs, and a governed transition moves it to `stage` where that phase's entry rule runs. Set `skipRules: true` to file it on `stage` directly instead, as its first entry, with none of the board's phase rules run for it — no arrival, no destination entry, no transition row. The card is filed and left parked for a person:
 
 ```typescript
-import { PlatformGithubIntegration } from '@mastra/factory/integrations/platform/github/integration';
-import { defaultGithubRules } from '@mastra/factory/integrations/github/default-rules';
+import { PlatformGithubIntegration } from '@warrenhoa/factory/integrations/platform/github/integration';
+import { defaultGithubRules } from '@warrenhoa/factory/integrations/github/default-rules';
 
 new PlatformGithubIntegration({
   rules: {
@@ -533,7 +533,7 @@ Label-driven placement is a relocation, not a transition: `stage` must be a phas
 
 A decision _without_ the flag that reaches a card which already exists keeps the governed path, so once a card has left the board's initial phase the decision cannot move it: a destination transition starts at the initial phase, and the initial phase is deliberately never re-entered. A handler that answers for an existing card — the reconcile replay below — therefore sets `skipRules` itself when the labels, not an arrival, are what decides where the card belongs.
 
-`AUTO_TRIAGED_LABEL` is exported from `@mastra/factory/rules/types` for the label the triage skill applies.
+`AUTO_TRIAGED_LABEL` is exported from `@warrenhoa/factory/rules/types` for the label the triage skill applies.
 
 Reconciliation re-applies label-derived placement. The issue sweep replays an open issue through the rules ingress whenever the issue's live labels differ from the card's stored ones — the `labeled`/`unlabeled` webhook may never have arrived (Factory was down, or the label was applied by something else). The deployment rule decides placement, exactly as at arrival, and the context carries the existing card on `item`, so one handler answers for both: a card still resting on the board's initial phase is landed the normal way, and a card that has already left it is re-placed with `skipRules` and no phase rule run. Cards parked by hand are untouched while an issue's labels are unchanged.
 
@@ -550,7 +550,7 @@ If a sandbox `gh` command fails authentication, run `github_refresh_token` and r
 Direct deployments can use either a GitLab Personal Access Token or Group Access Token. Both authenticate the GitLab API and Git-over-HTTPS in the same way; the difference is reach: a personal token follows the user's accessible projects, while a group token is limited to its group and subgroups. Configure the token with `api` and `write_repository` scopes so Factory can manage issues and merge requests, clone repositories, and push session branches.
 
 ```typescript
-import { GitLabIntegration } from '@mastra/factory/integrations/gitlab/integration';
+import { GitLabIntegration } from '@warrenhoa/factory/integrations/gitlab/integration';
 
 const gitlab = new GitLabIntegration({
   accessToken: process.env.GITLAB_ACCESS_TOKEN,
@@ -568,7 +568,7 @@ With no constructor options, the integration reads `GITLAB_ACCESS_TOKEN`, `GITLA
 For a Mastra Platform/Nango connection, use `PlatformGitLabIntegration`. `MastraFactory` installs it automatically whenever Platform credentials are configured and no integration with id `gitlab` was supplied. It discovers every active connection of the organization on the Platform's `gitlab` (OAuth) integration, proxies provider requests through `/v2/connections/{connectionId}/proxy`, and polls the Platform event log for GitLab events. `MASTRA_GITLAB_CONNECTION_ID` (or the `connectionId` constructor option) is optional and only narrows discovery to one connection. An explicit integration with id `gitlab` takes precedence.
 
 ```typescript
-import { PlatformGitLabIntegration } from '@mastra/factory/integrations/platform/gitlab/integration';
+import { PlatformGitLabIntegration } from '@warrenhoa/factory/integrations/platform/gitlab/integration';
 
 const gitlab = new PlatformGitLabIntegration(); // Optionally { connectionId: 'connection-id' } to pin one connection.
 ```
@@ -587,7 +587,7 @@ These sit next to `MASTRA_PLATFORM_GITHUB_POLLING_ENABLED` and `MASTRA_PLATFORM_
 Use `IncidentioIntegration` with an incident.io API key to intake active incidents and outstanding follow-ups:
 
 ```typescript
-import { IncidentioIntegration } from '@mastra/factory/integrations/incidentio/integration';
+import { IncidentioIntegration } from '@warrenhoa/factory/integrations/incidentio/integration';
 
 const incidentio = new IncidentioIntegration(); // Reads INCIDENT_IO_API_KEY.
 const factory = new MastraFactory({ storage, integrations: [incidentio] });
@@ -596,7 +596,7 @@ const factory = new MastraFactory({ storage, integrations: [incidentio] });
 For Mastra Platform connections, use `PlatformIncidentioIntegration`. It discovers every active `incident-io` connection at runtime and proxies provider requests through `/v2/connections/{connectionId}/proxy`. `MastraFactory` installs it automatically when Platform credentials are present; an explicit integration with id `incidentio` takes precedence.
 
 ```typescript
-import { PlatformIncidentioIntegration } from '@mastra/factory/integrations/platform/incidentio/integration';
+import { PlatformIncidentioIntegration } from '@warrenhoa/factory/integrations/platform/incidentio/integration';
 
 const incidentio = new PlatformIncidentioIntegration(); // Reads Platform credentials from the environment.
 ```
@@ -608,7 +608,7 @@ Both integrations expose incidents and incident follow-ups as separate Intake so
 Both `LinearIntegration` and `PlatformLinearIntegration` automatically install the built-in `issueObserved` and `issueClosed` handlers. No default-rule imports or configuration are needed, including for `new PlatformLinearIntegration()` or direct construction with credentials only.
 
 ```typescript
-import { PlatformLinearIntegration } from '@mastra/factory/integrations/platform/linear/integration';
+import { PlatformLinearIntegration } from '@warrenhoa/factory/integrations/platform/linear/integration';
 
 const linear = new PlatformLinearIntegration({
   rules: {
