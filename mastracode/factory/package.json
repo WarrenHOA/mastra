@@ -34,7 +34,9 @@
     "./package.json": "./package.json"
   },
   "scripts": {
+    "build": "pnpm build:lib",
     "build:lib": "tsdown --silent --config tsdown.config.ts",
+    "prepare": "pnpm build:lib",
     "generate:api-cli-route-metadata": "tsx scripts/generate-api-cli-route-metadata.ts",
     "smoke:dist": "node --input-type=module -e \"import('./dist/index.js').then(() => console.log('dist import ok')).catch(e => { console.error(e.message); process.exit(1); })\"",
     "check": "tsc --noEmit",
